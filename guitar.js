@@ -3,7 +3,7 @@ const modelParams = {
   imageScaleFactor: 0.7,  // reduce input image size for gains in speed.
   maxNumBoxes: 1,        // maximum number of boxes to detect
   iouThreshold: 0.5,      // ioU threshold for non-max suppression
-  scoreThreshold: 0.89,    // confidence threshold for predictions.
+  scoreThreshold: 0.99,    // confidence threshold for predictions.
 }
 //load webcam
 navigator.getUserMedia = navigator.getUserMedia ||
@@ -22,7 +22,7 @@ handTrack.startVideo(video).then(status => {
     navigator.getUserMedia({video:{}},stream => {
       video.srcObject = stream;
       //run detection
-      setInterval(runDetection,100);
+      setInterval(runDetection,80);
     },
     err => console.log(err)
   );
